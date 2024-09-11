@@ -1,6 +1,6 @@
 import cv2
 
-ip_address = '192.168.180.194'
+ip_address = '192.168.8.8'
 port = '8080'
 
 video = cv2.VideoCapture(f"http://{ip_address}:{port}/video")

@@ -2,7 +2,6 @@ import cv2
 
 folder = '../videos/'
 
-# video = cv2.VideoCapture("http://192.168.180.194:8080/video")
 video = cv2.VideoCapture(folder + 'coast.mp4')
 w = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
 h = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))

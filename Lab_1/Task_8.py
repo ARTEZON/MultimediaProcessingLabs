@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 # cap = cv2.VideoCapture('../videos/coast.mp4')
-cap = cv2.VideoCapture("http://192.168.180.194:8080/video")
+# cap = cv2.VideoCapture("http://192.168.8.8:8080/video")
 
 frame_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
