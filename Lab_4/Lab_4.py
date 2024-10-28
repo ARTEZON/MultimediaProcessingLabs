@@ -2,8 +2,10 @@ import cv2
 import numpy as np
 
 
-def preprocess(filepath: str, blur_kernel_size: int):
+def preprocess(filepath: str, blur_kernel_size: int, scale: float = 1):
     img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
+    if scale != 1:
+        img = cv2.resize(img, None, fx=scale, fy=scale)
     return cv2.GaussianBlur(img, (blur_kernel_size, blur_kernel_size), 0)
 
 
@@ -108,19 +110,20 @@ if __name__ == '__main__':
     folder = '../images/'
     images = ['block.png', 'cat.jpg', 'desert.bmp', 'emoji.png',
               'enderman.png', 'error.png', 'poddon.png', 'seaglass.webp']
-    select = 8
+    select = 7
+    scale = 1
     blur = 5
     low_percent = 0.04
     high_percent = 0.2
 
-    # image = preprocess(r"C:\Users\ARTEZON\Desktop\test.jpg", blur)
-    image = preprocess(folder + images[select - 1], blur)
+    # image = preprocess(r"cpp\Release\Static-assets-upload1811341065938287602.png", blur, scale)
+    image = preprocess(folder + images[select - 1], blur, scale)
     edges = edge_detection(image, low_percent, high_percent, show_grad=True, show_nms=True)
     cv2.imshow('image', image)
     cv2.imshow('edges', edges)
 
-    edges_library = cv2.Canny(image, 100, 200)
-    cv2.imshow('edges_library', edges_library)
+    # edges_library = cv2.Canny(image, 100, 200)
+    # cv2.imshow('edges_library', edges_library)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
