@@ -1,0 +1,12 @@
+keras.layers.Input(shape=(width, height, depth)),
+keras.layers.Conv2D(filters=32, kernel_size=(3, 3), activation="relu"),
+keras.layers.Conv2D(filters=32, kernel_size=(3, 3), activation="relu"),
+keras.layers.MaxPooling2D(pool_size=(2, 2)),
+keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation="relu"),
+keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation="relu"),
+keras.layers.MaxPooling2D(pool_size=(2, 2)),
+keras.layers.Flatten(),
+keras.layers.Dropout(0.5),
+keras.layers.Dense(n_classes, activation="softmax")
+
+{'accuracy': 0.9954000115394592, 'loss': 0.013291829265654087}
